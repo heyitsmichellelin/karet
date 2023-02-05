@@ -76,8 +76,8 @@ const MenuLinks = ({ isOpen }) => {
       >
         <Link to={"/ingredients"}><MenuItem to="/ingredients"> Ingredients </MenuItem></Link>
 
-        <MenuItem to="/abouttoexpire"> About to Expire </MenuItem>
-        <MenuItem> <NotificationMenu/> </MenuItem>
+        {/* <MenuItem to="/abouttoexpire"> About to Expire </MenuItem>
+        <MenuItem> <NotificationMenu/> </MenuItem> */}
       </Stack>
     </Box>
   );

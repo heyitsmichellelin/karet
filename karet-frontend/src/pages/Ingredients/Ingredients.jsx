@@ -1,4 +1,4 @@
-import React from 'react';
+import { React, useState, useEffect} from 'react';
 import {
   Table,
   Thead,
@@ -15,6 +15,30 @@ import AddIngredientButton from '../../components/AddIngredientButton/AddIngredi
 import './Ingredients.css';
 
 const Ingredients = () => {
+  const [ingredients, setIngredients] = useState([]);
+
+  const fetchIngredients = async () => {
+    const response = await fetch("http://localhost:8000/ingredients")
+    const ingredients = await response.json()
+    setIngredients(ingredients.data)
+  }
+
+  const renderIngredientRows = ingredients => {
+    console.log(ingredients);
+    const rows = ingredients.map((ingredient, i) => (
+      <Tr key={i}>
+        <Th>{ingredient[0]}</Th>
+        <Th>{ingredient[1]}</Th>
+        <Th>{ingredient[2]}</Th>
+      </Tr>
+    ));
+    return rows;
+  };
+
+  useEffect(() => {
+    fetchIngredients();
+  }, []);
+
   return (
     <div className="ingredientsPage">
       <div className="ingredientHeader">
@@ -33,21 +57,7 @@ const Ingredients = () => {
       </Tr>
     </Thead>
     <Tbody>
-      <Tr>
-        <Td>Tomatoes</Td>
-        <Td>02/02/2025</Td>
-        <Td>Fridge</Td>
-      </Tr>
-      <Tr>
-        <Td>Onion</Td>
-        <Td>02/02/2025</Td>
-        <Td>Fridge</Td>
-      </Tr>
-      <Tr>
-        <Td>Carrot</Td>
-        <Td>02/02/2025</Td>
-        <Td>Fridge</Td>
-      </Tr>
+      {renderIngredientRows(ingredients)}
     </Tbody>
     <Tfoot>
       <Tr>

@@ -19,6 +19,7 @@
     font-family: 'Inter', sans-serif;
     font-weight: bold;
     color: #483C32;
+    text-decoration: underline;
 }
 
 .recipeDescription {
@@ -29,11 +30,21 @@
 }
 
 
-.Times {
+.recipeTimes {
+    padding-top: 5px;
+    padding-bottom: 5px;
     font-size: 15px;
-    font-weight: bold;
     font-family: 'Inter', sans-serif;
     color: #483C32;
+}
+
+.portions {
+    padding-bottom: 5px;
+    font-family: 'Inter', sans-serif;
+}
+
+.recipeNutritionFacts {
+    font-family: 'Inter', sans-serif;
 }
 
 .filterButtonBox {
@@ -41,4 +52,8 @@
 }
 .generateButtonBox{
     padding-right: 290px;
+}
+
+.recipeBlock {
+    padding-left: 20px;
 }
